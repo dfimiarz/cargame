@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <style>
+        .error {color: #FF0000;}
+    </style>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Waiting for a session to start </title>
+
+    </head> 
+
+    <p>Please wait for the session to start. The login page will appear automatically. Have your user name and password accessible, and keep this page/tab open until the session begin.</p> 
+    <script>
+        setTimeout(function () {
+            window.location.replace("./login.php");
+        }, 10000);
+    </script> 
+
+    <body>
+        <p>
+
+            <h1> <div>The next trial will being in: {{wait_time}}</div> </h1>
+            <div>In the meanwhile please read the instructions below, it will save you time during the simulation game:</div>
+
+
+            <p>  
+                The simulation includes ten short driving sessions and brief surveys between sessions. 
+                In each session you will drive and collect coins by tapping repeatedly on the computer mouse pad as shown below:    </p>
+            Between areas you will need to cross lakes. You can either take a detour around the lake (do it yourself)
+            or use a shuttle service. <b> EACH SHUTTLE RIDE COST 4 COINS. YOU CAN COLLECT COINS IN EACH AREA. </b> 
+            To make a choice click on the buttons as shown below. </p>
+
+        <p> <b> Important: </b> You are one of several people who are playing this simulation now. Scoring your experience with the the shuttle performance
+            and providing accurate feedback (not compliments) is likely to improve services, but only if other participantes are also engaged in sending feedback. 
+            It is entirely up to you to determine if it worth investing your time collecting coins and scoring shuttle services or not. 
+            Note that you will always be able to take the detour instead. <!--Also look at the stars posted on the shuttle sign: these are the average scores of other players. You can use this information to make your decision...--> </p>
+
+
+        <img src="./u311/carexperiment/resources/images/wait/cargame_slide1.png" alt="Slide1" style="width:304px;height:428px"></img>
+        <img src="./u311/carexperiment/resources/images/wait/cargame_slide2.png" alt="Slide1" style="width:304px;height:428px"></img>
+        <img src="./u311/carexperiment/resources/images/wait/cargame_slide3.png" alt="Slide1" style="width:304px;height:428px"></img>
+        <img src="./u311/carexperiment/resources/images/wait/cargame_slide4.png" alt="Slide1" style="width:304px;height:428px"></img>
+
+
+
+
+
+
+    </body>
+</html>

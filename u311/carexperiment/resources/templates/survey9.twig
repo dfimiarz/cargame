@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style>
+.error {color: #FF0000;}
+</style>
+<title>Survey 9</title>
+</head>
+<body>
+<form id="form1" name="form1" method="post" action="{{form_proc|e}}">
+  <p><strong>Thanks for completing the nine'th session of our simulation game -- just one more... Answering the questions below will help us improve the shuttle services: </strong></p>
+
+  <input type="hidden" name="survey_id" value="9">
+  <p> <span class="error"> {{form_error}} </span> </p>
+  <p>1. (required) Would you recommend the shuttle services to other players? <span class="error"> * {{errors.Q1}} </span> </p>
+  <p>
+    <label>
+      <input type="radio" name="Q1" value="No" id="Q1_0" /> 
+    No</label>
+    <br />
+    <label>
+      <input type="radio" name="Q1" value="Unlikely" id="Q1_1" />
+      Unlikely</label>
+    <br />
+    <label>
+      <input type="radio" name="Q1" value="Maybe" id="Q1_2" />
+      Maybe</label>
+    <br />
+    <label>
+      <input type="radio" name="Q1" value="Probably" id="Q1_3" />
+      Probably</label>
+    <br />
+    <label>
+      <input type="radio" name="Q1" value="Yes" id="Q1_4" />
+      Yes</label>
+      
+    <br />
+  </p>
+
+<p> <span class="error"> {{form_error}} </span> </p>
+  <p>2. (required) Would you recommend the detour to other players? <span class="error"> * {{errors.Q2}} </span> </p>
+  <p>
+    <label>
+      <input type="radio" name="Q2" value="No" id="Q1_0" /> 
+    No</label>
+    <br />
+    <label>
+      <input type="radio" name="Q2" value="Unlikely" id="Q2_1" />
+      Unlikely</label>
+    <br />
+    <label>
+      <input type="radio" name="Q2" value="Maybe" id="Q2_2" />
+      Maybe</label>
+    <br />
+    <label>
+      <input type="radio" name="Q2" value="Probably" id="Q2_3" />
+      Probably</label>
+    <br />
+    <label>
+      <input type="radio" name="Q2" value="Yes" id="Q2_4" />
+      Yes</label>
+      
+    <br />
+  </p>
+  
+  <p> <span class="error"> {{form_error}} </span> </p>
+  <p>3. (required) Are you willing to score the shuttle services during the next session? <span class="error"> * {{errors.Q3}} </span> </p>
+  <p> <label>
+      <input type="radio" name="Q3" value="Yes" id="Q3_0" /> 
+    Yes</label>
+    <br />
+    <label>
+      <input type="radio" name="Q3" value="Half" id="Q3_1" />
+      Every other ride</label>
+    <br />
+    <label>
+      <input type="radio" name="Q3" value="Once" id="Q3_2" />
+      Yes, but only once</label>
+    <br />
+    <label>
+      <input type="radio" name="Q3" value="No" id="Q3_3" />
+      No thanks</label>
+    <br />
+  </p>
+
+  <p>&nbsp;</p>
+  
+<p>
+  <input type="submit" name="button" id="button" value="Submit" />
+  <br />
+</p>
+  <p></p>
+<p>&nbsp;</p>
+</form>
+</body>
+</html>
+

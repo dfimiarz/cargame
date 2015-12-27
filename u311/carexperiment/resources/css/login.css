@@ -1,0 +1,187 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	background-color: #FFFFFF;
+	overflow-y: scroll;
+	background-image:  url(../images/subtle_dots.png);
+	font-family: arial,sans-serif;
+}
+
+a, img
+{
+	border: none;
+}
+
+
+.page_element
+{
+
+	width: 640px;
+	margin-left: auto;
+	margin-right:auto;
+
+}
+
+.page_sub_element
+{
+
+	margin-left: auto;
+	margin-right: auto;
+	padding: 5px;
+	width: 70%;
+
+}
+
+
+#credits
+{
+	font-family: arial,sans-serif;
+	font-size: x-small;
+	margin-top: 5px;
+	text-align: center;
+	
+}
+
+.login_txt_box
+{
+	
+	display: block;
+	font-family: arial,sans-serif;
+	margin: 5px;
+	padding: 6px 12px;
+	font-size: .9em;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #a9c1d4;
+	border-radius: 4px;
+	width: 70%;
+}
+
+
+
+.corecal_gen_container
+{
+	
+	overflow: hidden;
+	vertical-align: middle;
+}
+
+
+.login_form_element
+{
+	width: 100%;
+}
+
+.login_form_fld
+{
+	text-align: center;
+}
+
+.login_form_btn
+{
+	text-align: left;
+	margin-left: 10px;
+}
+
+.login_wrapper
+{
+	border: solid 1px #c9e1f4;
+	border-radius: 5px;
+	background-color: white;
+	padding: 10px;
+}
+
+
+.login_help
+{
+	font-size: .8em;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding-left: 10px;
+}
+
+#login_help_header
+{
+	font-size: larger;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
+.login_help_item
+{
+	margin-top:5px;
+	margin-bottom: 5px;
+}
+
+
+#banner_row
+{
+	margin-top: 0px;
+	margin-bottom: 0px;
+
+}
+
+
+
+#logo_container{
+
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	
+}
+
+
+.layout_row
+{
+	width: 100%;
+	overflow: hidden;
+	margin-top: 5px;
+}
+
+
+
+.top_bar_element
+{
+	border-radius: 5px;
+	font-size: .7em;
+	height: 150px;
+}
+
+#login_btn
+{
+
+	border: solid 1px;
+	border-radius: 4px;
+	border-color: #c0c0c0 #D9D9D9 #D9D9D9;
+	background: #deedf7 url(../images/panelbackground.png) 70% 70%;
+	overflow: hidden;
+	display: inline;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-weight: bold;
+	font-size: 0.9em;
+
+}
+
+#error_msg
+{
+
+	color: red;
+	border: 1px solid;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	background: #ffd;
+	
+}
+
+#warning_img
+{
+	vertical-align: middle;
+}
+
+

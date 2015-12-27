@@ -1,0 +1,39 @@
+body {
+
+}
+
+canvas {
+	display: block;
+	position: absolute;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+
+#rating_dialog{
+    
+    display: none;
+    border: 1px solid;
+    border-radius: 5px;
+    z-index: 1000;
+    background-color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    
+}
+#dialog_close_btn
+{
+    text-align: right;
+    cursor: pointer;
+    
+}
+
+.rating_txt
+{
+    font-size: small;
+}
+

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="Description" content="Car driving game"/>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, user-scalable=0"/>
+
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+
+	<title>Car driving game</title>
+	<link rel="stylesheet" href="./u311/carexperiment/resources/css/game.css"/>
+        
+        <script src="./u311/carexperiment/resources/js/pixi.min.js"></script>
+        <script src="./u311/carexperiment/resources/js/InputComponent.js"></script>
+        <script src="./u311/carexperiment/resources/js/game.js"></script>
+        <script src="./u311/carexperiment/resources/js/Road.js"></script>
+        <script src="./u311/carexperiment/resources/js/Car.js"></script>
+        <script src="./u311/carexperiment/resources/js/Coin.js"></script>
+	<script src="./u311/carexperiment/resources/js/main.js"></script>
+</head>
+<body>
+	<noscript>
+		<p>Car driving game</p>
+	</noscript>
+        <div> Current session number: {{session_number}}</div>
+	<div id='consoleMe'></div>
+	<div id='social'></div>
+        <div id="rating_dialog">
+        
+            <div class="rating_txt">Please rate shuttle timely arrival (1=poor, 5=great) </div> 
+            <input type="radio" class="score_cbox" name="score" onclick="saveRatingDialog(1)" value="1">1
+            <input type="radio" class="score_cbox" name="score" onclick="saveRatingDialog(2)" value="2">2
+            <input type="radio" class="score_cbox" name="score" onclick="saveRatingDialog(3)" value="3">3
+            <input type="radio" class="score_cbox" name="score" onclick="saveRatingDialog(4)" value="4">4
+            <input type="radio" class="score_cbox" name="score" onclick="saveRatingDialog(5)" value="5">5
+    
+            <div class="rating_txt">Please rate shuttle preformance (speed during ride)</div>  
+            <input type="radio" class="score_cbox2" name="score2" onclick="saveRatingDialog2(1)" value="1">1
+            <input type="radio" class="score_cbox2" name="score2" onclick="saveRatingDialog2(2)" value="2">2
+            <input type="radio" class="score_cbox2" name="score2" onclick="saveRatingDialog2(3)" value="3">3
+            <input type="radio" class="score_cbox2" name="score2" onclick="saveRatingDialog2(4)" value="4">4
+            <input type="radio" class="score_cbox2" name="score2" onclick="saveRatingDialog2(5)" value="5">5
+    
+    
+            <div style="text-align: right">
+                <span class="rating_txt">Do not show again</span>
+                <input type="checkbox" id="rating_c_box" onclick="saveRatingDialog(-999)" >
+            </div>
+        </div>       
+</body>
+</html>
+

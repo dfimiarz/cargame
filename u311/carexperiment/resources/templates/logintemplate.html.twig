@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Login page</title>
+        <link href="./u311/carexperiment/resources/css/login.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div class="page_element" id="view_port">
+            <div>
+                <div>
+                    <!-- Main container-->
+                    <div class="layout_row">
+                        <div class="login_wrapper page_sub_element">
+                            <div id="login_help_header">Sign in:</div>
+                            <form id="login_form" action="/u311/carexperiment/ctrl/LoginController.php" method="POST">
+
+                                {% if login_err %}
+                                    <div class="login_form_element login_form_fld" id="error_msg"><img id="warning_img" src="./u311/carexperiment/resources/images/login/dialog_warning.png"></img>&nbsp;{{login_err|e}} </div>
+                                {% endif %}
+
+                                <div class="login_form_element login_form_fld" >
+                                    <input type="text" id="username_txt" class="login_txt_box" name="user" placeholder="User Name">
+                                </div>
+                                <div class="login_form_element login_form_fld">
+                                    <input type="password" id="password_txt" class="login_txt_box" name="pass" placeholder="Password"></input>
+                                </div>
+                                <div class="login_form_element login_form_btn">
+                                    <input type="submit" id="login_btn" value="Sign in">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Main container-->
+                </div>
+
+                <div id="credits">
+                    Developed by DF,OT
+                </div>
+            </div>
+        </div>
+        <audio autoplay loop>
+            <source src="./u311/carexperiment/resources/sounds/gong.mp3" type="audio/mpeg">
+            Your browser does not support the audio tag
+        </audio>
+
+    </body>
+</html>

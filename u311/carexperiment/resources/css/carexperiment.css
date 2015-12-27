@@ -1,0 +1,13 @@
+.jumbotron
+{
+    background-image: url("../images/carbg.png");
+    background-repeat: no-repeat;
+    background-color: #287db3;
+    background-position: 80% 90%;
+}
+
+.jumbotron h1
+{
+    color: white;
+}
+
