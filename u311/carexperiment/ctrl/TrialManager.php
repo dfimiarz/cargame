@@ -8,7 +8,7 @@ namespace u311\carexperiment\ctrl;
  * and open the template in the editor.
  */
 
-use u311\carexperiment\config\DbConnectInfo as DbConnectInfo;
+use u311\carexperiment\config\Config as Config;
 
 class TrialManager {
 
@@ -18,12 +18,10 @@ class TrialManager {
      */
     static function getNextTrialTime() {
 
-        $dbinfo = DbConnectInfo::getDBConnectInfoObject();
-
+        $config = Config::getConfig("db");
         
-        $mysqli = new \mysqli($dbinfo->getServer(), $dbinfo->getUserName(), $dbinfo->getPassword(), $dbinfo->getDatabaseName(), $dbinfo->getPort());
+        $mysqli = new \mysqli($config["server"], $config["username"], $config["password"], $config["name"], $config["port"]);
 
-        
         if ($mysqli->connect_errno) {
             $this->throwDBExceptionOnError( $mysqli->connect_error, $mysqli->connect_errno);
         }

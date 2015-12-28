@@ -23,7 +23,7 @@ $ctrl = new LoginController();
 $dest_code = '';
 
 if( isset($_SESSION['dest']) &&!empty($_SESSION['dest']) ){
-$ctrl->setDestCode($_SESSION['dest']);
+    $ctrl->setDestCode($_SESSION['dest']);
 }
 
 $ctrl->runTask();
@@ -47,23 +47,17 @@ class LoginController
 
     public function runTask() {
 
-        $username = null;
-        $password = null;
+        $u1 = $u2 = "";
+        $pass = "";
 
-        if (isset($_POST["user"])) {
-            $username = $_POST["user"];
-        }
-
-        if (isset($_POST["pass"])) {
-            $password = $_POST["pass"];
-        }
-
+        $u1 = trim(isset($_POST["u1"])? $_POST["u1"]:"");
+        $u2 = trim(isset($_POST["u2"])? $_POST["u2"]:"");
+        $pass = trim(isset($_POST["pass"])? $_POST["pass"]:"");
+        
+        
         try {
 
-            /* @var $user_ctrl UserController */
-            $user_ctrl = UserController::getController();
-
-            $user_info = $user_ctrl->processLogin($username, $password);
+            $user_info = UserController::processLogin($u1,$u2,$pass);
             
             
             if (is_null($user_info)) {

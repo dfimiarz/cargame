@@ -47,7 +47,7 @@ CarState_Drive.prototype.update = function (d_t)
     var right_lim = this.world.objects["road_main"].r_limit - car_w;
     var left_lim = this.world.objects["road_main"].l_limit + car_w;
         
-    this.car.x += this.car.steering_pos;
+    this.car.x += this.car.steering_pos * this.car.v/17;
      
     if( this.car.x < left_lim ){
         this.car.x = left_lim;

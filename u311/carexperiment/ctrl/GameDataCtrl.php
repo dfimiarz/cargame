@@ -2,7 +2,7 @@
 
 namespace u311\carexperiment\ctrl;
 
-use u311\carexperiment\config\DbConnectInfo as DbConnectInfo;
+use u311\carexperiment\config\Config as Config;
 use u311\carexperiment\ctrl\DataCtrl as DataCtrl;
 use u311\carexperiment\model\FormField as FormField;
 
@@ -15,10 +15,10 @@ class GameDataCtrl extends DataCtrl {
 
         parent::__construct();
 
-        $dbinfo = DbConnectInfo::getDBConnectInfoObject();
+        $config = Config::getConfig("db");
 
         if (!$mysqli_con) {
-            @$this->mysqli_con = new \mysqli($dbinfo->getServer(), $dbinfo->getUserName(), $dbinfo->getPassword(), $dbinfo->getDatabaseName(), $dbinfo->getPort());
+            @$this->mysqli_con = new \mysqli($config["server"], $config["username"], $config["password"], $config["name"], $config["port"]);
 
             if ($this->mysqli_con->connect_errno) {
                 $this->throwDBExceptionOnError($this->mysqli_con->connect_errno, $this->mysqli_con->connect_error);

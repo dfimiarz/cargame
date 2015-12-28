@@ -27,7 +27,7 @@ class DataCtrl
 
     protected function throwCustomExceptionOnError($errno = 0 ,$errmsg) {
         
-        throw new Exception($errmsg,$errno);
+        throw new \Exception($errmsg,$errno);
     }
 
 

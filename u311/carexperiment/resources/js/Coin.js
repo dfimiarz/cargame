@@ -83,19 +83,19 @@ CoinState_SHOWING.prototype.update = function (d_t)
     this.coin.y += this.world.objects["car"].v * d_t/1000 * this.world.objects["road_main"].m_to_pix;
     
     var car = this.world.objects["car"];
-    var car_r = car.x - car.width/2;
-    var car_t = car.y - car.height/2;
+    var car_x = car.x - car.width/2;
+    var car_y = car.y - car.height/2;
     
     
     
-    var coin_r = this.coin.x - this.coin.width/2;
-    var coin_t = this.coin.y - this.coin.height/2;
+    var coin_x = this.coin.x - this.coin.width/2;
+    var coin_y = this.coin.y - this.coin.height/2;
     
     
-    if (coin_r < car_r + car.width &&
-            coin_r + this.coin.width > car_r &&
-            coin_t < car_t + car.height &&
-            this.coin.height + coin_t > car_t) {
+    if (coin_x < car_x + car.width &&
+            coin_x + this.coin.width > car_x &&
+            coin_y < car_y + car.height &&
+            this.coin.height + coin_y > car_y) {
         //console.log("Coin colided");
         this.coin.setState(new CoinState_Collected(this.world,this.coin));
     }
