@@ -12,7 +12,7 @@ class Router {
          */
         $host = $_SERVER['HTTP_HOST'];
         $rootdir = "/carexperiment";
-        $this->targets['default'] = "http://$host/";
+        $this->targets['default'] = "http://$host$rootdir";
         $this->targets['game'] = "http://$host$rootdir/game.php";
         $this->targets['explain'] = "http://$host$rootdir/explain.php";
         $this->targets['login'] = "http://$host$rootdir/login.php";

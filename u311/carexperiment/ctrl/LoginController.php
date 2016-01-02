@@ -10,6 +10,14 @@ use u311\carexperiment\ctrl\SQLUserManager as SQLUserManager;
 
 session_start();
 
+$after_login_dest_code = null;
+
+if( isset($_SESSION['dest']) && !empty($_SESSION['dest'])){
+    $after_login_dest_code = $_SESSION['dest'];
+}
+
+
+unset($_SESSION['dest']);
 unset($_SESSION['login_err']);
 unset($_SESSION['user']);
 unset($_SESSION['user_id']);
@@ -19,13 +27,7 @@ unset($_SESSION['show_popup']);
 session_regenerate_id();
 
 $ctrl = new LoginController();
-
-$dest_code = '';
-
-if( isset($_SESSION['dest']) &&!empty($_SESSION['dest']) ){
-    $ctrl->setDestCode($_SESSION['dest']);
-}
-
+$ctrl->setDestCode($after_login_dest_code);
 $ctrl->runTask();
 
 
@@ -42,31 +44,26 @@ class LoginController
     }
 
     public function setDestCode($code) {
-        $this->dest_code = $code;
+        if(!is_null($code)){
+            $this->dest_code = $code;
+        }
     }
 
     public function runTask() {
 
-        $u1 = $u2 = "";
-        $pass = "";
-
-        $u1 = trim(isset($_POST["u1"])? $_POST["u1"]:"");
-        $u2 = trim(isset($_POST["u2"])? $_POST["u2"]:"");
-        $pass = trim(isset($_POST["pass"])? $_POST["pass"]:"");
-        
+        $user = filter_input(INPUT_POST,'user');
+        $pass = filter_input(INPUT_POST,'pass');
         
         try {
 
-            $user_info = UserController::processLogin($u1,$u2,$pass);
             
-            
-            if (is_null($user_info)) {
+            if( ! UserController::processLogin($user,$pass)){
                 $this->failure("Login failed");
             }
            
-            $new_user_id = SQLUserManager::createUser();
+            $usermanager = new SQLUserManager();
+            $new_user_id = $usermanager->createUser();
             
-            $_SESSION['user'] = $user_info->name;
             $_SESSION['user_id'] = $new_user_id;
 
             $this->success();

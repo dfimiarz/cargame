@@ -36,14 +36,13 @@ if( !isset($_SESSION['user_id'])){
 $user_id = $_SESSION['user_id'];
 
 //Check the $_POST['action']
-if (isset($_POST['score']) && !empty($_POST['score'])) {
-    $score = $_POST['score'];
-} else {
-    $msg_sender->onError(null, "Action missing");
+$score = filter_input(INPUT_POST, 'score');
+
+if(is_null($score)){
+    $msg_sender->onError(null, "Score missing");
 }
 
-
-$_SESSION['score']=$score; 
+$_SESSION['score']=$score;
 
 /*
  * No error, Send reponseo with OK message.

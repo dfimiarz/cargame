@@ -47,7 +47,7 @@ CarState_Drive.prototype.update = function (d_t)
     var right_lim = this.world.objects["road_main"].r_limit - car_w;
     var left_lim = this.world.objects["road_main"].l_limit + car_w;
         
-    this.car.x += this.car.steering_pos;
+    this.car.x += this.car.steering_pos * this.car.v/17;
      
     if( this.car.x < left_lim ){
         this.car.x = left_lim;
@@ -62,7 +62,7 @@ CarState_Drive.prototype.update = function (d_t)
 
 CarState_Drive.prototype.enter = function()
 {
-   // console.log("\tCAR entered DRIVE state");
+    console.log("\tCAR entered DRIVE state");
     this.car.x = this.world.pref_width * .5;
     this.car.y = this.world.pref_height * .75;
 };
@@ -80,14 +80,14 @@ CarState_Drive.prototype.handleInput = function ()
      this.car.brake_pos = 0;
 
     if (this.world.inputcomp.keysStates[37]) {
-        this.car.steering_pos -= (2 + this.car.v/5);//game.objects["car"].v/5);
+        this.car.steering_pos -= 2;
     }
 
     if (this.world.inputcomp.keysStates[39]) {
-        this.car.steering_pos += (2+ this.car.v/5);
+        this.car.steering_pos += 2;
     }
     
-    if (this.world.inputcomp.keysStates[38] || this.world.inputcomp.keysStates[32])  {
+    if (this.world.inputcomp.keysStates[38]) {
         this.car.gas_pedal_pos = 1;
     }
     
@@ -131,12 +131,12 @@ CarState_Intro.prototype.update = function (d_t)
         this.car.x = right_lim;
     }
     
-   // console.log("Turn " + this.car.steering_pos);
+    console.log("Turn " + this.car.steering_pos);
 }
 
 CarState_Intro.prototype.enter = function()
 {
-   // console.log("\tCAR entered INTRO state");
+    console.log("\tCAR entered INTRO state");
     this.car.x = this.world.pref_width * .5;
     this.car.y = this.world.pref_height * .75;
     this.car.steering_pos = 0;
@@ -194,7 +194,7 @@ Car.prototype.constructor = Car;
 
 Car.prototype.setState = function(state)
 {
-    //console.log("\tCAR changing  state");
+    console.log("\tCAR changing  state");
     
     if( this.state !== undefined && this.state !== null)
     {

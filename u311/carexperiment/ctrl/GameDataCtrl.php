@@ -21,7 +21,7 @@ class GameDataCtrl extends DataCtrl {
             @$this->mysqli_con = new \mysqli($config["server"], $config["username"], $config["password"], $config["name"], $config["port"]);
 
             if ($this->mysqli_con->connect_errno) {
-                $this->throwDBExceptionOnError($this->mysqli_con->connect_errno, $this->mysqli_con->connect_error);
+                $this->throwDBExceptionOnError($this->mysqli_con->error,$this->mysqli_con->errno);
             }
         } else {
             $this->mysqli_con = $mysqli_con;
@@ -33,15 +33,15 @@ class GameDataCtrl extends DataCtrl {
         $query = "INSERT INTO flappy_car VALUES(null,now(),?,?,?)";
 
         if (!$stmt = $this->mysqli_con->prepare($query)) {
-            $this->throwDBExceptionOnError($this->mysqli_con->errno, $this->mysqli_con->error);
+            $this->throwDBExceptionOnError($this->mysqli_con->error,$this->mysqli_con->errno);
         }
 
         if (!$stmt->bind_param('idd', $user_id, $action, $state)) {
-            $this->throwDBExceptionOnError($this->mysqli_con->errno, $this->mysqli_con->error);
+            $this->throwDBExceptionOnError($this->mysqli_con->error,$this->mysqli_con->errno);
         }
 
         if (!$stmt->execute()) {
-            $this->throwDBExceptionOnError($stmt->errno, $stmt->error);
+            $this->throwDBExceptionOnError($stmt->error, $stmt->errno);
         }
 
         $stmt->close();
@@ -63,15 +63,15 @@ class GameDataCtrl extends DataCtrl {
         $query = "INSERT INTO `surveys` (`user_id`,`survey_id`,`date`,`Question1`,`Question2`,`Question3`,`Question4`,`Question5`,`Question6`,`Question7`,`Question8`,`Question9`,`Question10`,`Question11`,`Question12`,`Question13`,`Question14`,`Question15`) VALUES (?,?,now(), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         if (!$stmt = $this->mysqli_con->prepare($query)) {
-            $this->throwDBExceptionOnError($this->mysqli_con->errno, $this->mysqli_con->error);
+            $this->throwDBExceptionOnError($this->mysqli_con->error,$this->mysqli_con->errno);
         }
 
         if (!$stmt->bind_param('iisssssssssssssss', $user_id, $fields['survey_id'], $fields['Q1'], $fields['Q2'], $fields['Q3'], $fields['Q4'], $fields['Q5'], $fields['Q6'], $fields['Q7'], $fields['Q8'], $fields['Q9'], $fields['Q10'], $fields['Q11'], $fields['Q12'], $fields['Q13'], $fields['Q14'], $fields['Q15'])) {
-            $this->throwDBExceptionOnError($this->mysqli_con->errno, $this->mysqli_con->error);
+            $this->throwDBExceptionOnError($this->mysqli_con->error,$this->mysqli_con->errno);
         }
 
         if (!$stmt->execute()) {
-            $this->throwDBExceptionOnError($stmt->errno, $stmt->error);
+            $this->throwDBExceptionOnError($stmt->error, $stmt->errno);
         }
 
         $stmt->close();
@@ -400,7 +400,7 @@ class GameDataCtrl extends DataCtrl {
         $query = "SELECT avg(user_action) as value FROM flappy_car WHERE time > DATE_SUB(now(),INTERVAL ? second) AND time < DATE_SUB(now(),INTERVAL ? second) AND user_action > 0 AND user_action < 6";
 
         if (!$stmt = $this->mysqli_con->prepare($query)) {
-            $this->throwDBExceptionOnError($this->mysqli_con->errno, $this->mysqli_con->error);
+            $this->throwDBExceptionOnError($this->mysqli_con->error,$this->mysqli_con->errno);
         }
 
         for ($i = 0; $i < 3; $i++) {
@@ -410,19 +410,19 @@ class GameDataCtrl extends DataCtrl {
             $value = 0;
 
             if (!$stmt->bind_param('ii', $h_int, $l_int)) {
-                $this->throwDBExceptionOnError($this->mysqli_con->errno, $this->mysqli_con->error);
+                $this->throwDBExceptionOnError($this->mysqli_con->error,$this->mysqli_con->errno);
             }
 
             if (!$stmt->execute()) {
-                $this->throwDBExceptionOnError($stmt->errno, $stmt->error);
+                $this->throwDBExceptionOnError($stmt->error, $stmt->errno);
             }
 
             if (!$stmt->bind_result($value)) {
-                $this->throwDBExceptionOnError($stmt->errno, $stmt->error);
+                $this->throwDBExceptionOnError($stmt->error, $stmt->errno);
             }
 
             if (!$stmt->fetch()) {
-                $this->throwDBExceptionOnError($stmt->errno, $stmt->error);
+                $this->throwDBExceptionOnError($stmt->error, $stmt->errno);
             }
 
             if (is_null($value)) {

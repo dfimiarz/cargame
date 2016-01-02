@@ -9,7 +9,13 @@ session_start();
 
 $router = new Router();
 
-if (!isset($_SESSION['user_id'])) {
+$user_id = null;
+
+if( isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])){
+    $user_id = $_SESSION['user_id'];
+}
+
+if (is_null($user_id)) {
     $url = $router->getDestination('login');
     header('Location: ' . $url . '?src=explain');
     exit();

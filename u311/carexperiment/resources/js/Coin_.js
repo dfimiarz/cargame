@@ -33,7 +33,7 @@ CoinState_Collected.prototype = Object.create(CoinState.prototype);
 CoinState_Collected.prototype.constructor = CoinState_Collected;
 
 CoinState_Collected.prototype.enter = function(){
-   // console.log("Coin in COLLECTED state");
+    console.log("Coin in COLLECTED state");
     this.coin.visible = false;
 }
 //===
@@ -47,7 +47,7 @@ CoinState_OoB.prototype = Object.create(CoinState.prototype);
 CoinState_OoB.prototype.constructor = CoinState_OoB;
 
 CoinState_OoB.prototype.enter = function(){
-    //console.log("Coin in OUT OF BOUNDS state");
+    console.log("Coin in OUT OF BOUNDS state");
     this.coin.visible = false;
 }
 //===
@@ -61,7 +61,7 @@ CoinState_NEW.prototype = Object.create(CoinState.prototype);
 CoinState_NEW.prototype.constructor = CoinState_NEW;
 
 CoinState_NEW.prototype.enter = function(){
-   // console.log("Coin in NEW state");
+    console.log("Coin in NEW state");
     this.coin.animationSpeed = .4;
     this.coin.scale.x = this.coin.scale.y = 1.5;
     this.coin.visible = false;
@@ -83,22 +83,21 @@ CoinState_SHOWING.prototype.update = function (d_t)
     this.coin.y += this.world.objects["car"].v * d_t/1000 * this.world.objects["road_main"].m_to_pix;
     
     var car = this.world.objects["car"];
-    var car_r = car.x - car.width/2;
-    var car_t = car.y - car.height/2;
+    var car_x = car.x - car.width/2;
+    var car_y = car.y - car.height/2;
     
     
     
-    var coin_r = this.coin.x - this.coin.width/2;
-    var coin_t = this.coin.y - this.coin.height/2;
+    var coin_x = this.coin.x - this.coin.width/2;
+    var coin_y = this.coin.y - this.coin.height/2;
     
     
-    if (coin_r < car_r + car.width &&
-            coin_r + this.coin.width > car_r &&
-            coin_t < car_t + car.height &&
-            this.coin.height + coin_t > car_t) {
+    if (coin_x < car_x + car.width &&
+            coin_x + this.coin.width > car_x &&
+            coin_y < car_y + car.height &&
+            this.coin.height + coin_y > car_y) {
         //console.log("Coin colided");
         this.coin.setState(new CoinState_Collected(this.world,this.coin));
-        
     }
 
     
@@ -113,7 +112,7 @@ CoinState_SHOWING.prototype.update = function (d_t)
 
 CoinState_SHOWING.prototype.enter = function()
 {
-    //console.log("Coin in SHOWING state");
+    console.log("Coin in SHOWING state");
     this.coin.visible = true;
     this.coin.play();
     var road_r = this.world.objects["road_main"].r_limit;
@@ -155,7 +154,7 @@ Coin.prototype.updateObj = function(d_t){
 
 Coin.prototype.setState = function(state)
 {
-   // console.log("\tCoin changing  state");
+    console.log("\tCoin changing  state");
     
     if( this.state !== undefined && this.state !== null)
     {

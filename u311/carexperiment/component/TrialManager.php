@@ -58,7 +58,8 @@ class TrialManager {
          */
         return $diff;
     }
-
+    
+    
     protected function throwDBExceptionOnError($errmsg, $errno) {
         throw new Exception($errmsg, $errno);
     }

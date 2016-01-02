@@ -76,9 +76,10 @@ if( !empty($errors))
     exit();
 }
 
-$data_crl = new GameDataCtrl();
 
 try {
+    
+    $data_crl = new GameDataCtrl();
     
     $data_crl->recordSuveyResult($fields, $user_id);
         

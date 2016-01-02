@@ -2,25 +2,21 @@
 
 namespace u311\carexperiment\ctrl;
 
+use u311\carexperiment\config\Config as Config;
+
 class UserController
 {
 	//check user password
-    public static function processLogin($u1,$u2,$pass) {
-
+    public static function processLogin($user,$pass) { 
         
-        $user_info = NULL;
+        $authenticated = false;
         
-        if( len($u1) )
-
-        if(strcmp($u1, $u2) !== 0 ){
-            return $user_info;
+        if(strcmp($user, "player") == 0 && 
+                strcmp($pass, "cargame") == 0){
+            $authenticated = true;
         }
-        
-        if(strcmp("pass", $password) == 0 ){
-            $user_info = $u1;
-        }
-        
-        return $user_info;
+             
+        return $authenticated;
     }
 }
 

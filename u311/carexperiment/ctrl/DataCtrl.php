@@ -20,12 +20,12 @@ class DataCtrl
      * Utility function to throw an exception if an error occurs
      * while running a mysql command.
      */
-    protected function throwDBExceptionOnError($errno, $errmsg) {
+    protected function throwDBExceptionOnError($errmsg,$errno) {
         
         throw new \Exception($errmsg, $errno);
     }
 
-    protected function throwCustomExceptionOnError($errno = 0 ,$errmsg) {
+    protected function throwCustomExceptionOnError($errmsg,$errno = 0) {
         
         throw new \Exception($errmsg,$errno);
     }

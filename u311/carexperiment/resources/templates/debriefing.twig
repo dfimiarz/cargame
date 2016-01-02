@@ -14,11 +14,22 @@ This experiment is design to study how presenting rating (or trends) about servi
 You may contact me either via the M-Turk system or via my email below. 
 
         Thanks again!
-    </p
+    </p>
 
 <p>Professor Ofer Tchernichovski [otcherni@hunter.cuny.edu]</p>
+{% if score and bonus %}
+<h2>Your score was: {{score}}, which grants you addition bonuse of ${{bonus}}</h2>
+<h2>Your game completion code is: {{comp_code}}</h2>
+{% endif %}
 
-<h2>Your survey completion code is: {{rand_str}}</h2>
+{%if error %}
+<h2>Error while saving data</h2>
+<p>Make sure to email the following to Dr. Tchernichovski</p>
+<p> {{error}} </p>
+<p> Failure to email Dr. Tchernikovski will result in missed payment</p>
+{% endif %}
+
+
 </body>
 </html>
 

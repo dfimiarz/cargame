@@ -32,13 +32,14 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 /*
- * session_number should already be set. Use it to get the right survey form
+ * Use it to get the right survey form
+ * Set the survey display to final survey
  */
-$session_number = 1;
+$session_number = 10;
 
-if( isset($_SESSION['session_num'])){
-    $session_number = $_SESSION['session_num'];
-}
+//if( isset($_SESSION['survey_id'])){
+//    $session_number = $_SESSION['survey_id'];
+//}
 
 $errors_array = [];
 

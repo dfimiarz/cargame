@@ -13,23 +13,20 @@
                     <div class="layout_row">
                         <div class="login_wrapper page_sub_element">
                             <div id="login_help_header">Sign in:</div>
-                            <form id="login_form" action="/u311/carexperiment/ctrl/LoginController.php" method="POST">
+                            <form id="login_form" action="./u311/carexperiment/ctrl/LoginController.php" method="POST">
 
                                 {% if login_err %}
                                     <div class="login_form_element login_form_fld" id="error_msg"><img id="warning_img" src="./u311/carexperiment/resources/images/login/dialog_warning.png"></img>&nbsp;{{login_err|e}} </div>
                                 {% endif %}
 
                                 <div class="login_form_element login_form_fld" >
-                                    <input type="text" id="username_txt" class="login_txt_box" name="u1" placeholder="AMT ID"/>
-                                </div>
-                                <div class="login_form_element login_form_fld" >
-                                    <input type="text" id="username_txt" class="login_txt_box" name="u2" placeholder="AMT ID (confirm)"/>
+                                    <input type="text" id="username_txt" class="login_txt_box" name="user" placeholder="User name"/>
                                 </div>
                                 <div class="login_form_element login_form_fld">
                                     <input type="password" id="password_txt" class="login_txt_box" name="pass" placeholder="Password"></input>
                                 </div>
                                 <div class="login_form_element login_form_btn">
-                                    <input type="submit" id="login_btn" value="Sign in">
+                                    <input type="submit" id="login_btn" value="Sign in"/>
                                 </div>
                             </form>
                         </div>

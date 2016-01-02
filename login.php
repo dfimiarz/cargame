@@ -50,7 +50,9 @@ if (isset($_SESSION['login_err'])) {
 //See if the $_GET['src'] is set. If so, pass it to log in controller for redirect.
 unset($_SESSION['dest']);
 
-if (isset($_GET['src']) && !empty($_GET['src'])) {
+$dest = \filter_input(INPUT_GET, "src");
+
+if(!is_null($dest)){
     $_SESSION['dest'] = $_GET['src'];
 }
 
