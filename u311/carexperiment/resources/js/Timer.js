@@ -1,8 +1,9 @@
-function CountDownTimer(duration, granularity) {
+function CountDownTimer(duration, granularity,game) {
   this.duration = duration;
   this.granularity = granularity || 1000;
   this.tickFtns = [];
   this.running = false;
+  this.game = game;
 }
 
 CountDownTimer.prototype.start = function() {
@@ -26,8 +27,8 @@ CountDownTimer.prototype.start = function() {
 
     obj = CountDownTimer.parse(diff);
     that.tickFtns.forEach(function(ftn) {
-      ftn.call(this, obj.minutes, obj.seconds);
-    }, that);
+      ftn.call(this,obj.minutes, obj.seconds);
+    },that);
   }());
 };
 

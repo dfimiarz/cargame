@@ -28,6 +28,8 @@ function main() {
     window.addEventListener("resize", resizeWindow);
     window.addEventListener("keydown", game.inputcomp.handleKeyDown.bind(game.inputcomp));
     window.addEventListener("keyup", game.inputcomp.handleKeyUp.bind(game.inputcomp));
+    window.addEventListener("mousedown", game.inputcomp.handleMouseDown.bind(game.inputcomp));
+    window.addEventListener("mouseup", game.inputcomp.handleMouseUp.bind(game.inputcomp));
     
     width = game.pref_width;
     height = game.pref_height;
@@ -35,7 +37,6 @@ function main() {
     document.body.appendChild(game.pixi_renderer.view);
 
     PIXI.loader
-    //.add('./u311/carexperiment/resources/images/sprites/car.json')
     .add('road_light_forest','./u311/carexperiment/resources/images/sprites/road_light_forest.png')
     .add('car_blue','./u311/carexperiment/resources/images/sprites/car_blue.png')
     .add('car_shuttle','./u311/carexperiment/resources/images/sprites/car_shuttle.png')

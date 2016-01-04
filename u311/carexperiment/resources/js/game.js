@@ -123,15 +123,8 @@ GameIntroState.prototype.enter = function(){
     this.game.pixi_stage.addChild(game.scenes["intro"]);
     
   
-    this.game.timer.onTick(display_timer).start();
-
-    function display_timer() {
-      game_count_down--;  
-      if (this.expired()) {
-        reportScore(score);
-      }
-    }  
-    
+    this.game.timer.start();
+      
 };
 
 GameIntroState.prototype.exit = function(){
@@ -577,7 +570,7 @@ GameShuttleState.prototype.exit = function(){
 
 Game = function () {
     
-    var final_score = 0;
+    this.score = 2;
     
     this.pref_width = 512;
     this.pref_height = 512;
@@ -596,20 +589,14 @@ Game = function () {
     //Container for all objects used by the game
     this.objects = {};
     
-    this.timer = new CountDownTimer(6);
-  
-    this.incScore = function(){
-        final_score += 1;
-    }
+    this.timer = new CountDownTimer(6,1000,this);
+    this.timer.onTick(this.tick);
     
-    this.getScore = function(){
-        return final_score;
-    }
 };
 
 Game.prototype.init = function ()
 {
-    this.current_state.enter();
+    this.current_state.enter();    
 };
 
 Game.prototype.setState = function(state)
@@ -635,6 +622,15 @@ Game.prototype.render = function()
 {
    this.pixi_renderer.render(game.pixi_stage);   
 };
+
+Game.prototype.tick = function (){
+    //This function will run in CountDownTimer context
+    //this refers to the timer class, NOT the game class
+    if (this.expired()) {
+        alert("Time is up" + this.game.score);
+        //reportScore(score);
+    }
+}
 
 // template for creating several sprites from one texture
 

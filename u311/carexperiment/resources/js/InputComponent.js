@@ -6,6 +6,7 @@
 
 InputComponent = {
     keysStates: {},
+    mouseStates: {},
     handleKeyDown: function (event)
     {
         //console.log("key down: " + this.keysStates);
@@ -19,6 +20,28 @@ InputComponent = {
         var key = event.keyCode || event.which;
         this.keysStates[key] = false;
         event.preventDefault();
+    },
+    handleMouseDown: function( event )
+    {
+        var button = event.button;
+        this.mouseStates[button] = true;
+        
+        console.log("Mouse down" + button);
+        event.preventDefault();
+        event.stopPropagation();
+        
+    },
+    handleMouseUp: function( event )
+    {
+        var button = event.button;
+        this.mouseStates[button] = false;
+        
+        console.log("Mouse up" + button);
+        event.preventDefault();
+        event.stopPropagation();
     }
+    
+    
+    
 };
 
